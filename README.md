@@ -25,6 +25,7 @@ cd lead-qualification-system
 python -m venv venv
 source venv/bin/activate # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+
 2. **Configure Environment**
 Create a `.env` file:
 CRM Configuration
