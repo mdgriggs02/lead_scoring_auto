@@ -1,0 +1,30 @@
+service: lead-qualification-api
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-1
+  environment:
+    CRM_TYPE: ${env:CRM_TYPE}
+    WEBHOOK_API_KEY: ${env:WEBHOOK_API_KEY}
+    HUBSPOT_API_KEY: ${env:HUBSPOT_API_KEY}
+    SALESFORCE_USERNAME: ${env:SALESFORCE_USERNAME}
+    SALESFORCE_PASSWORD: ${env:SALESFORCE_PASSWORD}
+    SALESFORCE_TOKEN: ${env:SALESFORCE_TOKEN}
+
+functions:
+  api:
+    handler: app.lambda_handler.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+    timeout: 30
+    memorySize: 256
+
+package:
+  patterns:
+    - '!venv/**'
+    - '!.env'
+    - '!__pycache__/**'
+    - '!.git/**' 

@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "app/main.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "app/main.py"
+        }
+    ],
+    "env": {
+        "PYTHONPATH": ".",
+        "CRM_TYPE": "hubspot",
+        "WEBHOOK_API_KEY": "@webhook_api_key",
+        "HUBSPOT_API_KEY": "@hubspot_api_key",
+        "SALESFORCE_USERNAME": "@salesforce_username",
+        "SALESFORCE_PASSWORD": "@salesforce_password",
+        "SALESFORCE_TOKEN": "@salesforce_token"
+    }
+}

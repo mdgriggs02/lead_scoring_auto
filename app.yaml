@@ -1,0 +1,27 @@
+name: lead-qualification-api
+region: nyc
+services:
+  - name: web
+    github:
+      repo: your-repo-name
+      branch: main
+    build_command: pip install -r requirements.txt
+    run_command: uvicorn app.main:app --host 0.0.0.0 --port 8080
+    envs:
+      - key: CRM_TYPE
+        value: "hubspot"
+      - key: WEBHOOK_API_KEY
+        value: "your-webhook-api-key"
+        type: SECRET
+      - key: HUBSPOT_API_KEY
+        value: "your-hubspot-api-key"
+        type: SECRET
+      - key: SALESFORCE_USERNAME
+        value: "your-salesforce-username"
+        type: SECRET
+      - key: SALESFORCE_PASSWORD
+        value: "your-salesforce-password"
+        type: SECRET
+      - key: SALESFORCE_TOKEN
+        value: "your-salesforce-token"
+        type: SECRET 
